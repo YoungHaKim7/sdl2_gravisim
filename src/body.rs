@@ -3,7 +3,7 @@ use std::f32::consts::PI;
 use crate::cam::Cam;
 use crate::GRAVITY_CONST;
 use sdl2::gfx::primitives::DrawRenderer;
-use sdl2::pixels::Color;
+// use sdl2::pixels::Color;
 use sdl2::render::WindowCanvas;
 
 #[derive(Copy, Clone)]
@@ -44,7 +44,7 @@ impl Body {
         }
     }
 
-    pub fn update_self(&mut self, mult: &f32, total_time: &f32) {
+    pub fn update_self(&mut self, mult: &f32, _total_time: &f32) {
         self.past_x = self.x;
         self.past_y = self.y;
 
@@ -58,7 +58,7 @@ impl Body {
         self.past_a_y = self.a_y * mult;
     }
 
-    pub fn compute_gravity(&mut self, body: Body, mult: &f32) {
+    pub fn compute_gravity(&mut self, body: Body, _mult: &f32) {
         let min_distance = 0.0001;
         let direction = (body.x - self.x, body.y - self.y);
         let mut distance = ((body.x - self.x).powi(2) + (body.y - self.y).powi(2)).sqrt();

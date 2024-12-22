@@ -6,17 +6,14 @@ mod cam;
 mod gui;
 mod system;
 
-use sdl2::event::Event;
-use sdl2::gfx::primitives::DrawRenderer;
-use sdl2::keyboard::KeyboardState;
-use sdl2::keyboard::Keycode;
-use sdl2::keyboard::Scancode;
-use sdl2::mouse::MouseState;
-use sdl2::pixels::Color;
+use sdl2::{
+    event::Event, gfx::primitives::DrawRenderer, keyboard::KeyboardState, keyboard::Keycode,
+    keyboard::Scancode, mouse::MouseState, pixels::Color,
+};
+
 use stopwatch::Stopwatch;
 
 const GRAVITY_CONST: f32 = 0.0005;
-const PI: f32 = 3.14159265;
 
 fn main() {
     let mut cam = cam::Cam::new();
@@ -27,7 +24,7 @@ fn main() {
     let mut res_mult = 1.0;
 
     let window = video_subsystem
-        .window(format!("Gravisim").as_str(), window_size.0, window_size.1)
+        .window("Gravisim", window_size.0, window_size.1)
         .position_centered()
         .allow_highdpi()
         .build()
@@ -209,7 +206,7 @@ fn main() {
         canvas.clear();
 
         let color_g = if selected_density > 255f32 {
-            0 as u8
+            0_u8
         } else {
             (255f32 - selected_density) as u8
         };

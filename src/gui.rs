@@ -26,9 +26,9 @@ impl<'a> Text<'a> {
         }
         Ok(Text {
             context: ctx,
-            filename: filename,
+            filename,
             font: font_result.unwrap(),
-            color: color,
+            color,
         })
     }
 

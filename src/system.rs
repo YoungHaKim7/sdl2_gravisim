@@ -21,7 +21,7 @@ impl System {
         let mut to_remove: Vec<usize> = vec![];
 
         for i in 0..self.bodies.len() {
-            if to_remove.contains(&(i as usize)) {
+            if to_remove.contains(&i) {
                 continue;
             }
 
@@ -30,7 +30,7 @@ impl System {
             self.bodies[i].a_y = 0.0;
 
             for j in 0..self.bodies.len() {
-                if to_remove.contains(&(j as usize)) {
+                if to_remove.contains(&j) {
                     continue;
                 }
                 if i != j {
